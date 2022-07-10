@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--Author: MINH DUONG  -->
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.smile.entity.Member" alias="Member" />
+		<typeAlias type="com.smile.entity.Team" alias="Team" />
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/smile"/>
+				<property name="username" value="root"/>
+				<property name="password" value=""/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mybatis/mappers/team.xml"/>
+		<mapper resource="mybatis/mappers/member.xml"/>
+		
+		
+	
+		
+	</mappers>
+</configuration>

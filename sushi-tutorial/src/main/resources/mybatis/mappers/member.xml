@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- @Author : MINH DUONG  -->
+<mapper namespace="smile.member">
+
+	<select id="recentOne" resultType="com.smile.entity.Member">
+	<![CDATA[
+		SELECT * FROM player ORDER BY id desc LIMIT 1
+		
+	]]>
+	</select>
+
+	<select id="selectAll" resultType="com.smile.entity.Member">
+	<![CDATA[
+		select * from player order by id
+	]]>
+	</select>
+	<insert id="insert" parameterType="com.smile.entity.Member">
+	<![CDATA[
+		insert into player (fullname, birthday , salary, start_date) 
+		values (#{fullname}, #{birthday},{salary},{startday})
+	]]>
+	</insert>
+	<select id="findOne" resultType="com.smile.entity.Member">
+		<![CDATA[
+		select * from player where id = #{id}
+	]]>
+	</select>
+	
+	<select id="findByName" resultType="com.smile.entity.Member">
+		<![CDATA[
+		select * from player where fullname = #{fullname}
+	]]>
+	</select>
+
+	<update id="updateAuthor" parameterType="com.smile.entity.Member">
+	<![CDATA[
+		update player set
+		fullname = #{fullname},
+		birthday = #{birthday},
+		salary = #{salary},
+		start_date = #{startday}
+		where id = #{id}
+	]]>
+	</update>
+</mapper>	
+
